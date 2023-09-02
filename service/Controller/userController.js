@@ -56,14 +56,14 @@ module.exports = {
   updateUser: (req, res) => {
     
     const fields = {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName
+      firstName: req.body.firstname,
+      lastName: req.body.lastname
     }
-    
     return userModel
       .updateUser(req.body.emailId, fields)
 
       .then((updatedUser) => {
+        console.log(updatedUser);
         return res.send({ status: "updated", updatedUser: updatedUser });
       })
 
@@ -79,7 +79,6 @@ module.exports = {
       .then((userData) => {
         // console.log("Controller");
         if (userData) {
-          console.log(userData);
           if (userData.password === req.body.password)
             return res.send({
               status: "ok",

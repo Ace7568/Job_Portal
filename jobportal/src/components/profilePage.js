@@ -30,11 +30,11 @@ const ProfilePage = () => {
       setlnameError("*required");
       return;
     }
-    if (!file) {
-      event.preventDefault();
-      setfileError("*required");
-      return;
-    }
+    // if (!file) {
+    //   event.preventDefault();
+    //   setfileError("*required");
+    //   return;
+    // }
     const item = {
       firstName: firstName,
       lastName: lastName,
@@ -89,7 +89,7 @@ const ProfilePage = () => {
             Choose a file for your resume.
           </Form.Text>
         </Form.Group>
-        {fileError && <Alert variant="danger">{fileError}</Alert>}
+        {/* {fileError && <Alert variant="danger">{fileError}</Alert>} */}
         <Button variant="primary" type="button" onClick={postUpdate}>
           Submit
         </Button>

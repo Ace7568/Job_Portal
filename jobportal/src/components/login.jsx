@@ -46,6 +46,7 @@ export const Login = () => {
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" onChange={(e)=>setpassword(e.target.value)}/>
           </Form.Group>
+          <div className="cont">
           <Button
             variant="dark"
             className="button"
@@ -54,9 +55,10 @@ export const Login = () => {
           >
             Submit
           </Button>
-          <Link as={Link} to="/Registration">
-            Registration
+          <Link className = 'register' as={Link} to="/Registration">
+            Register!
           </Link>
+          </div>
         </Form>
       </div>
     </div>
