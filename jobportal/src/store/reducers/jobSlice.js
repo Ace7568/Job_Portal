@@ -8,7 +8,7 @@ const initialState ={
 }
 
 export const getAllJobs = createAsyncThunk("job/getAll",async(params, thunkAPI)=>{
-    return axios.get(`${API_URL}job/getAll`)
+    return axios.get(`${API_URL}jobs/getAll`)
 })
 
 
@@ -30,10 +30,12 @@ export const jobSlice = createSlice({
         })
         .addCase(getAllJobs.rejected, (state)=> {
             state.isLoading = false;
+            console.log("failed");
         })
         .addCase(getAllJobs.fulfilled, (state, {payload})=>{
-            state.jobs = payload.data;
+            state.jobs = payload?.data?.jobs;
             state.isLoading = false;
+            // console.log(state.jobs);
         })
     }
 });

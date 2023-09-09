@@ -16,11 +16,13 @@ module.exports = {
         return jobModel
           .getALL()
     
-          .then((users) => {
-            return res.send({ status: "ok" }, users);
+          .then((jobs) => {
+            // console.log(jobs);
+            return res.send({jobs});
           })
     
           .catch((err) => {
+            console.log("RAM");
             return res.send({ status: "fail", error: err });
           });
       },

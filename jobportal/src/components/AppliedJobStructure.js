@@ -1,6 +1,12 @@
+import { useEffect } from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 
 export default function AppliedJobStructure(props){
+
+    const dispatch = useDispatch();
+
+
     return(
         <Card as={Col} lg="10" sm="10" className="border my-3 ms-5">
             <Card.Body>

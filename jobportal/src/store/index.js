@@ -6,7 +6,7 @@ import userSlice from './reducers/userSlice';
 
 const store = configureStore({
     reducer: {
-        job: jobSlice,
+        jobs: jobSlice,
         user: userSlice  
     },
 })

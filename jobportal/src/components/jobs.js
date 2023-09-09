@@ -1,13 +1,28 @@
 import React from "react";
 import { Container, Row, Col, Form, Card, Button } from "react-bootstrap";
 import JobsStructure from "./JobsStructure";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllJobs } from "../store/reducers/jobSlice";
+import { useEffect } from "react";
 
 const Jobs = () => {
+
+  const jobs = useSelector((state) => state?.jobs?.jobs);
+
+  console.log(jobs);
+  const dispatch = useDispatch();
+  
+  useEffect(()=>{
+        dispatch(getAllJobs());
+    },[])
+
+  
+
   return (
     <Container>
       <Row>
         <h1 style={{ fontSize: "3em" }} className="mt-3 ms-5">
-          Applied Jobs
+          Available Jobs
         </h1>
       </Row>
 
@@ -24,11 +39,15 @@ const Jobs = () => {
         </Col>
       </Row>
 
-      <Row className="justify-content-center">
+      {jobs.map((job)=>{
+        return(
+          <Row className="justify-content-center m-4">
         <Col lg='9'>
-            <JobsStructure post='senior software engineer' company='kp developers' desc='With supporting text below as a natural lead-in to additional content.'/>
+            <JobsStructure post={job.jobField} company={job.companyName} desc={job.discription}/>
         </Col>
       </Row>
+        )
+      })}
     </Container>
   );
 };

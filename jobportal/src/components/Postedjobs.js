@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col, Card } from "react-bootstrap";
 import PostedJobStructure from "./PostedJobStructure";
+import { useDispatch } from "react-redux";
+import { getAllJobs } from "../store/reducers/jobSlice";
 
 const Postedjobs = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(getAllJobs);
+    console.log("dispached");
+  })
   return (
     <>
       <Row>
